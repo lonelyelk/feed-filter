@@ -1,5 +1,3 @@
-require 'rubygems'
-require 'sinatra'
 require 'active_support'
 require 'lib/feed_fetcher.rb'
 

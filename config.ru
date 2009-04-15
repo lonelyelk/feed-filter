@@ -3,12 +3,12 @@ require 'sinatra'
 
 Sinatra::Application.set(:run, false)
 Sinatra::Application.set(:environment, ENV['RACK_ENV'])
+Sinatra::Application.set(:app_file, 'feed_filter.rb')
 
 if ENV['RACK_ENV'] == "development"
   use Rack::ShowExceptions
-  use Rack::Reloader
+  Sinatra::Application.set(:reload, true)
 end
 
-require 'feed_filter'
 run Sinatra::Application
 
