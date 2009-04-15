@@ -9,3 +9,6 @@ get '/' do
   builder :index
 end
 
+not_found do
+  "hmm... are you sure?"
+end
