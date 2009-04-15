@@ -1,0 +1,8 @@
+= Feed Filter
+
+== Summary
+
+All simple straight-forward feed filter written with Sinarta and HTTParty.
+Fetch all feeds and filter items on title on each request.
+
+All feeds are supposed to be Atom.
