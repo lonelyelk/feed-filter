@@ -1,4 +1,5 @@
 require 'active_support'
+require 'cgi'
 require File.join(File.dirname(__FILE__), 'lib', 'feed_fetcher.rb')
 
 get '/' do

@@ -19,7 +19,10 @@ class FeedFetcher
     end
     retitles = Regexp.union(titles.reject(&:empty?).map { |t| %r{\b#{Regexp.escape(t)}\b}i })
     urls.each do |u|
-      items += get(u)["rss"]["channel"]["item"] unless u.empty?
+      begin
+        items += get(u)["rss"]["channel"]["item"] unless u.empty?
+      rescue
+      end
     end
     items.select { |i| i["title"] =~ retitles }.sort do |x, y|
       DateTime.parse(y["pubDate"]) <=> DateTime.parse(x["pubDate"])
