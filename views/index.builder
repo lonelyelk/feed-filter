@@ -7,9 +7,9 @@ xml.rss "version" => "2.0", "xmlns:atom" => "http://www.w3.org/2005/Atom", "xmln
     xml.description "Torrents"
     @items.each do |item|
       xml.item do
-        item.each_pair do |key, value|
-          xml.tag!(key, value)
-        end
+        xml.title item[:title]
+        xml.link item[:link]
+        xml.guid item[:link]
       end
     end
   end
