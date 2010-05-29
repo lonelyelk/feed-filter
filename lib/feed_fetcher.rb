@@ -4,7 +4,7 @@ require 'httparty'
 class FeedFetcher
   include HTTParty
   format :xml
-  
+
   CONFIG_DIR = File.expand_path(File.join(File.dirname(__FILE__), "..", "config"))
 
   def self.get_items
