@@ -11,12 +11,8 @@ class FeedFetcher
     urls = nil
     titles = nil
     items = []
-    File.open(File.join(CONFIG_DIR, "feed_urls")) do |f|
-      urls = f.readlines.each(&:strip!)
-    end
-    File.open(File.join(CONFIG_DIR, "show_titles")) do |f|
-      titles = f.readlines.each(&:strip!)
-    end
+    urls = File.readlines(File.join(CONFIG_DIR, "feed_urls")).reject{ |l| l =~ /^#/ }.map{ |l| l.chomp.strip }
+    titles = File.readlines(File.join(CONFIG_DIR, "show_titles")).reject{ |l| l =~ /^#/ }.map{ |l| l.chomp.strip }
     retitles = Regexp.union(titles.reject(&:empty?).map { |t| %r{\b#{Regexp.escape(t)}\b}i })
     urls.each do |u|
       begin
